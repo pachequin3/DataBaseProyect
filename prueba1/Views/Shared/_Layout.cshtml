@@ -1,9 +1,7 @@
 ﻿@using prueba1.Models;
-@using prueba1.Permisos;
-@using System.Web.Mvc;
-@using System.Web.Security;
+
 @{
-    List<Rol> rolesPermitidos = new List<Rol> { Rol.Pediatra}; 
+    List<Rol> rolesPermitidos = new List<Rol> { Rol.Pediatra };
     bool tieneAcceso = false;
 
     if (HttpContext.Current.Session["Usuario"] != null)
@@ -12,7 +10,6 @@
         tieneAcceso = rolesPermitidos.Contains(usuario.IdRol);
     }
 }
-
 
 
 
@@ -45,9 +42,28 @@
                         <li>@Html.ActionLink("Resultados", "Resultados", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Notas de evolucion", "Notas_Evolucion", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Historial clinico", "Historial_Clinico", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Laboratorio", "Laboratorio", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Controles", "Controles", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     }
-                    <li>@Html.ActionLink("Laboratorio", "Laboratorio", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Controles", "Controles", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                  
+                    
+                        <li>@Html.ActionLink("Laboratorio", "Laboratorio", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Controles", "Controles", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Historial clinico", "Historial_Clinico", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        /*xd*/
+                        <li>@Html.ActionLink("Recetas Medicas", "RecetasMedicas", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    
+                    
+                    
+                        /*xd*/
+                    <li>@Html.ActionLink("Seguros Medicos", "SegurosMedicos", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Pediatras", "Pediatras", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Centro Medico", "CentroMedico", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                
+                    
+                    
+
+                    
                     <li>@Html.ActionLink("Cerrar Sesion", "CerrarSesion", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
             </div>

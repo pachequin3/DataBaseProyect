@@ -12,19 +12,19 @@ namespace prueba1.Logica
     public class LO_Usuario
     {
 
-        public Usuarios EncontrarUsuario(string correo, string clave)
+        public Usuarios EncontrarUsuario(string usuario, string clave)
         {
 
             Usuarios objeto = new Usuarios();
 
 
-            using (SqlConnection conexion = new SqlConnection("Data Source=DESKTOP-VN7CRBV\\MSSQLSERVER01 ; Initial Catalog=DBPEDIATRICO; Integrated Security=true"))
+            using (SqlConnection conexion = new SqlConnection("Data Source=DESKTOP-VN7CRBV\\MSSQLSERVER01 ; Initial Catalog=Pediatria; Integrated Security=true"))
             {
 
-                string query = "select Nombres,Correo,Clave,IdRol from USUARIOS where Correo = @pcorreo and Clave = @pclave";
+                string query = "select Nombre,Apellido,Usuario,Clave,IdRol from USUARIOS where Usuario = @pusuario and Clave = @pclave";
 
                 SqlCommand cmd = new SqlCommand(query, conexion);
-                cmd.Parameters.AddWithValue("@pcorreo", correo);
+                cmd.Parameters.AddWithValue("@pusuario", usuario);
                 cmd.Parameters.AddWithValue("@pclave", clave);
                 cmd.CommandType = CommandType.Text;
 
@@ -40,8 +40,9 @@ namespace prueba1.Logica
 
                         objeto = new Usuarios()
                         {
-                            Nombres = dr["Nombres"].ToString(),
-                            Correo = dr["Correo"].ToString(),
+                            Nombre = dr["Nombre"].ToString(),
+                            Apellido = dr["Apellido"].ToString(),
+                            Usuario = dr["Usuario"].ToString(),
                             Clave = dr["Clave"].ToString(),
                             IdRol = (Rol)dr["IdRol"],
 
